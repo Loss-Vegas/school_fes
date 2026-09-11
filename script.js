@@ -924,14 +924,24 @@ function clearPaylines() {
 }
 
 function goToResult() {
-    // COINSを5の倍数に丸める
-    const finalCoins = Math.round(coins / 5) * 5;
+    const finalCoins = Math.floor(coins / 5) * 5;
 
-    // 小切手へ金額を渡す
+    document.getElementById("confirm-amount").textContent = finalCoins;
+
+    document.getElementById("confirm-modal").classList.add("show");
+
+    document.getElementById("cancel-button").addEventListener("click", function () {
+    document.getElementById("confirm-modal").classList.remove("show");
+});
+
+
+document.getElementById("confirm-button").addEventListener("click", function () {
+    const finalCoins = Math.floor(coins / 5) * 5;
+
     window.location.href =
         "check.html?amount=" + encodeURIComponent(finalCoins);
+});
 }
-
 // ==========================
 // 初期化
 // ==========================

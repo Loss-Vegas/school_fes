@@ -1418,3 +1418,128 @@ body {
   transform: translateY(2px);
   box-shadow: 0 2px 0 #888;
 }
+
+/* =========================
+   FINAL CONFIRMATION
+========================= */
+
+.confirm-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+}
+
+.confirm-modal.show {
+    display: flex;
+}
+
+.confirm-box {
+    width: min(85vw, 520px);
+    padding: 28px 30px;
+
+    background: #000000;
+    border: 4px solid #222;
+    border-radius: 8px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.confirm-title {
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+.confirm-label {
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.confirm-amount {
+    margin: 5px 0 18px;
+
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.confirm-message {
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm-buttons button {
+    min-width: 120px;
+    padding: 11px 18px;
+
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+
+    border: 2px solid #222;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+#cancel-button {
+    background: #ddd;
+}
+
+#confirm-button {
+    background: #222;
+    color: #f7f0d8;
+}
+
+/* スマホ横画面 */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .confirm-box {
+        width: min(80vw, 480px);
+        padding: 16px 20px;
+    }
+
+    .confirm-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .confirm-label {
+        font-size: 11px;
+    }
+
+    .confirm-amount {
+        font-size: 32px;
+        margin: 2px 0 8px;
+    }
+
+    .confirm-message {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .confirm-buttons button {
+        padding: 7px 15px;
+        min-width: 100px;
+        font-size: 12px;
+    }
+}
