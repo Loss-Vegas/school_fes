@@ -1,58 +1,204 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
+
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎰 SLOT GAME</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Festival Slot</title>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700;800&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="game">
-        <h1>🎰 SLOT GAME</h1>
+    <main class="game">
 
-        <div class="coins">
-            COINS: <span id="coins">100</span>
+        <!-- =========================
+             タイトル
+        ========================== -->
+        <h1>Loss Vegas</h1>
+
+
+        <!-- =========================
+             スロット ＋ 右側コントロール
+        ========================== -->
+        <section class="slotArea">
+
+            <!-- スロット本体 -->
+            <div class="slotMachine">
+
+                <div class="reels">
+
+                    <!-- 1列目 -->
+                    <div class="reelColumn">
+                        <div class="reel" id="reel1-1">💀</div>
+                        <div class="reel" id="reel1-2">🎩</div>
+                        <div class="reel" id="reel1-3">💀</div>
+                    </div>
+
+                    <!-- 2列目 -->
+                    <div class="reelColumn">
+                        <div class="reel" id="reel2-1">🪙</div>
+                        <div class="reel" id="reel2-2">🎩</div>
+                        <div class="reel" id="reel2-3">🪙</div>
+                    </div>
+
+                    <!-- 3列目 -->
+                    <div class="reelColumn">
+                        <div class="reel" id="reel3-1">🪙</div>
+                        <div class="reel" id="reel3-2">💀</div>
+                        <div class="reel" id="reel3-3">🃏</div>
+                    </div>
+
+                    <!-- 4列目 -->
+                    <div class="reelColumn">
+                        <div class="reel" id="reel4-1">🃏</div>
+                        <div class="reel" id="reel4-2">🎩</div>
+                        <div class="reel" id="reel4-3">🪙</div>
+                    </div>
+
+                    <!-- 5列目 -->
+                    <div class="reelColumn">
+                        <div class="reel" id="reel5-1">👑</div>
+                        <div class="reel" id="reel5-2">💀</div>
+                        <div class="reel" id="reel5-3">🎩</div>
+                    </div>
+
+                </div>
+
+
+                <!-- 当たりライン表示 -->
+                <svg
+                    id="paylineLayer"
+                    class="paylineLayer">
+                </svg>
+
+            </div>
+
+
+            <!-- =========================
+                 右側コントロール
+            ========================== -->
+            <div class="sideControl">
+
+
+                <!-- COINS -->
+                <div class="sideCoins">
+
+                    <span>COINS</span>
+
+                    <!-- JSが使うCOINS -->
+                    <strong id="coins">50</strong>
+
+                </div>
+
+
+                <!-- BET -->
+                <section class="betControls">
+
+                    <button
+                        id="betMinus"
+                        type="button">
+                        −
+                    </button>
+
+
+                    <div>
+
+                        BET
+
+                        <!-- 画面に表示するBET -->
+                        <strong id="betControlValue">
+                            3
+                        </strong>
+
+                        <!--
+                            JS用のBET
+                            画面には表示しない
+                        -->
+                        <span
+                            id="bet"
+                            style="display: none;">
+                            3
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        id="betPlus"
+                        type="button">
+                        ＋
+                    </button>
+
+                </section>
+
+
+                <!-- SPIN -->
+                <button
+                    id="spinButton"
+                    type="button">
+                    ▶ SPIN
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             結果表示
+        ========================== -->
+        <div
+            id="result"
+            class="result">
+            SPINしてみよう！
         </div>
 
-        <div class="slot-machine">
 
-            <div class="reel" id="reel1">🍒</div>
-            <div class="reel" id="reel2">🍋</div>
-            <div class="reel" id="reel3">🔔</div>
+        <!-- =========================
+             PAY TABLE
+        ========================== -->
+        <section class="payout">
 
-        </div>
+            <h1>PAY TABLE</h1>
 
-        <div class="result" id="result">
-            BETしてSPIN！
-        </div>
+            <h3>💀 ×3 → BET ×3</h3>
 
-        <div class="bet-area">
-            <button id="betMinus">−</button>
-            <span>BET: <span id="bet">10</span></span>
-            <button id="betPlus">＋</button>
-        </div>
+            <h3>🎩 ×3 → BET ×5</h3>
 
-        <button class="spin-button" id="spinButton">
-            SPIN
-        </button>
+            <h3>🪙 ×3 → BET ×8</h3>
 
-        <div class="paytable">
-            <h2>配当表</h2>
+            <h3>🃏 ×3 → BET ×15</h3>
 
-            <p>🍒 🍒 🍒 → ×5</p>
-            <p>🍋 🍋 🍋 → ×8</p>
-            <p>🔔 🔔 🔔 → ×10</p>
-            <p>⭐ ⭐ ⭐ → ×20</p>
-            <p>7️⃣ 7️⃣ 7️⃣ → ×50</p>
-            <p>その他 → ×0</p>
-        </div>
+            <h3>7️⃣ ×3 → BET ×30</h3>
 
-    </div>
+            <small>
+                4連続 = 2倍　/　5連続 = 4倍
+            </small>
 
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         JavaScript
+    ========================== -->
     <script src="script.js"></script>
+<div class="result-area">
+    <button id="go-result-button" onclick="goToResult()">
+        GO RESULT
+    </button>
+</div>
+
 </body>
+
 </html>
-```
